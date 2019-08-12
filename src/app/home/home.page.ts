@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../services/game.service';
+import { Router } from '@angular/router';
 import { IGame } from '../models/IGame';
 
 @Component({
@@ -11,7 +12,10 @@ export class HomePage implements OnInit {
   
   games: IGame[] = []
 
-  constructor(private gameService: GameService) {}
+  constructor(
+  	private gameService: GameService,
+  	private router: Router
+  ) {}
   
   ngOnInit(): void {
     this.gameService.getAll()
@@ -20,6 +24,16 @@ export class HomePage implements OnInit {
 
   createGame() {
   	this.gameService.create()
-  		.subscribe(game => console.log(game.data))
+  		.subscribe(game => {
+  			const { data: gameId } = game
+
+  			this.router.navigate([ '/game', gameId ])
+  		})
+
   }
+
+  goToGame(id) {
+  	console.log('click', id)
+  	this.router.navigate([ '/game', id ])
+  } 
 }

@@ -14,6 +14,11 @@ export class GameService {
     return this.http.get<IGameResult>(`${this.url}/api/games`)
   }
 
+  getById(gameId: string) {
+    return this.http.get<IGameResult>(`${this.url}/api/games/${gameId}`)
+  }
+
+
   create() {
   	return this.http.post<IGameRequest>(`${this.url}/api/games`, {})	
   }

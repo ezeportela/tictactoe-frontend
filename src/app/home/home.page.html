@@ -8,16 +8,18 @@
 
 <ion-content>
   
-  <ion-card *ngFor="let game of games">
-    <ion-card-header>
-      <ion-card-subtitle>{{ game.createdAt | relativeTime }}</ion-card-subtitle>
-      <ion-card-title>{{ game.winner | winnerGame }}</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      {{ game.finished | finishedGame }}
-    </ion-card-content>
-  </ion-card>
+  <div class="div-game" *ngFor="let game of games" (click)="goToGame(game._id)"> 
+    <ion-card >
+      <ion-card-header>
+        <ion-card-subtitle>{{ game.createdAt | relativeTime }}</ion-card-subtitle>
+        <ion-card-title>{{ game.winner | winnerGame }}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{ game.finished | finishedGame }}
+      </ion-card-content>
+    </ion-card>
+  </div>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="createGame()">
