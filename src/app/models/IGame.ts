@@ -1,3 +1,8 @@
+export interface IGameRequest {
+    data:      string;
+    message:   string;
+}
+
 export interface IGameResult { 
     data:      IGame[];
     message:   string;

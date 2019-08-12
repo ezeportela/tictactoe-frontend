@@ -18,4 +18,8 @@ export class HomePage implements OnInit {
       .subscribe(games => this.games = games.data)
   }
 
+  createGame() {
+  	this.gameService.create()
+  		.subscribe(game => console.log(game.data))
+  }
 }

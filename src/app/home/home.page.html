@@ -11,11 +11,17 @@
   <ion-card *ngFor="let game of games">
     <ion-card-header>
       <ion-card-subtitle>{{ game.createdAt | relativeTime }}</ion-card-subtitle>
-      <ion-card-title>Turno del Jugador</ion-card-title>
+      <ion-card-title>{{ game.winner | winnerGame }}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
-      Terminado: {{ game.finished }}
+      {{ game.finished | finishedGame }}
     </ion-card-content>
   </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="createGame()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

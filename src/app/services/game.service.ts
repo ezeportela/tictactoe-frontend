@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IGameResult } from '../models/IGame';
+import { IGameResult, IGameRequest } from '../models/IGame';
 
 @Injectable({
   providedIn: 'root'
@@ -12,5 +12,9 @@ export class GameService {
 
   getAll() {
     return this.http.get<IGameResult>(`${this.url}/api/games`)
+  }
+
+  create() {
+  	return this.http.post<IGameRequest>(`${this.url}/api/games`, {})	
   }
 }
