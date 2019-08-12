@@ -10,8 +10,9 @@ import { IGame } from '../models/IGame'
 })
 export class GamePage implements OnInit {
   
-  id: string;
+  id: string
   game: IGame
+  sides: [] = [1, 2, 3]
 
   constructor(
   	private route: ActivatedRoute,
@@ -19,6 +20,7 @@ export class GamePage implements OnInit {
   ) { }
 
   ngOnInit() {
+
   	this.route.params.subscribe(params => {
       this.id = params['id']
 

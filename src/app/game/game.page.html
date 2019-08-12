@@ -9,5 +9,11 @@
 </ion-header>
 
 <ion-content>
-	{{ game | json }}
+	<ion-grid>
+  		<ion-row *ngFor="let row of sides">
+		    <ion-col *ngFor="let column of sides">
+		      {{ row }} - {{ column }}
+		    </ion-col>
+	  	</ion-row>
+	</ion-grid>
 </ion-content>
